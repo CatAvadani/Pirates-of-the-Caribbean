@@ -5,7 +5,7 @@ const chapters = [
     title: "Pirates of the Caribbean - Cursed Seas",
     text: "In the treacherous waters of the Caribbean, the tales of cursed pirate treasure resonate through the ages. You, Captain Adrian Storm, have to discover the mysterious map of the lost treasure. Brace yourself for a daring odyssey, navigate through five challenging levels, confronting supernatural forces and crafty adversaries to claim the cursed treasure. ",
     instruction: "Are you ready for adventure?",
-    background: "images/pirate-ship2.png",
+    background: "",
     button1: {
       title: "Begin Your Journey",
       nextChapter: 1,
@@ -35,7 +35,7 @@ const chapters = [
     title: "The Hidden Cove",
     text: "Captain Storm, the hidden cove holds the key to unlocking the mysteries of the Pirates of the Caribbean: Cursed Seas. Explore its secrets! Only by uncovering the clues you can progress further into the heart of the adventure.",
     instruction: "Assemble the clues to reveal the next steps in your quest.",
-    background: "images/cave3.png",
+    background: "images/cave-message1.png",
     button1: {
       title: "Solve puzzle",
       nextChapter: 5,
@@ -64,7 +64,7 @@ const chapters = [
     title: "Chapter 4",
     text: "",
     instruction: "",
-    background: "images/beach-img.jpg",
+    background: "images/shipwreck.jpeg",
     button1: {
       title: "Return to the map",
       nextChapter: 1,
