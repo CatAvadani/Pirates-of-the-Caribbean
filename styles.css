@@ -175,3 +175,18 @@ Inventory items
   top: 20%;
   right: 17%;
 }
+/*  inventory section */
+
+.inventory-collection {
+  margin: 2rem auto;
+  width: 430px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem;
+}
+.inventory-item {
+  height: 100px;
+  width: 100px;
+  border-radius: var(--radius);
+  background-color: rgba(255, 255, 255, 0.4);
+}
