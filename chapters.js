@@ -5,7 +5,7 @@ const chapters = [
     title: "Pirates of the Caribbean - Cursed Seas",
     text: "In the treacherous waters of the Caribbean, the tales of cursed pirate treasure resonate through the ages. You, Captain Adrian Storm, have to discover the mysterious map of the lost treasure. Brace yourself for a daring odyssey, navigate through five challenging levels, confronting supernatural forces and crafty adversaries to claim the cursed treasure. ",
     instruction: "Are you ready for adventure?",
-    background: "",
+    background: "images/shipwreck.jpeg",
     button1: {
       title: "Begin Your Journey",
       nextChapter: 1,
@@ -53,7 +53,7 @@ const chapters = [
     background: "images/chapter-3.png",
     button1: {
       title: "Navigate the Ghostly Ship",
-      nextChapter: 0,
+      nextChapter: 4,
     },
     button2: {
       title: "Activate the Celestial Compass",
@@ -61,10 +61,10 @@ const chapters = [
     },
   },
   {
-    title: "Chapter 4",
+    title: "Ghostly Ship",
     text: "",
     instruction: "",
-    background: "images/shipwreck.jpeg",
+    background: "images/ghost-ship1.png",
     button1: {
       title: "Return to the map",
       nextChapter: 1,
@@ -81,7 +81,7 @@ const chapters = [
     background: "images/map-2.png",
     button1: {
       title: "Ghostly Ship",
-      nextScene: 2,
+      nextChapter: 4,
     },
     button2: {
       title: "Return to the cave",

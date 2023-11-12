@@ -43,23 +43,66 @@ function displayChapter() {
   btn2.addEventListener("click", () => {
     displayNextChapter(chapter.button2.nextChapter);
   });
-  /** Created the condition for showing the map in the
-   *  appropriate chapter
-   */
+
   if (chapter.title === chapters[0].title) {
+    console.log(chapter.title);
     btn2.classList.add("hidden");
-    if (!inventory.includes("hidden-map")) showHiddenMap();
   } else {
     btn2.classList.remove("hidden");
     backgroundVideo.classList.add("hidden");
     imageContainer.classList.remove("hidden");
   }
-
+  /** Created the condition for showing the map in the
+   *  appropriate chapter
+   */
+  if (chapter.title === chapters[1].title) {
+    if (!inventory.includes("hidden-map")) showHiddenMap();
+    console.log(inventory);
+  }
   /** Display the inventory items in the appropriate chapter */
   if (chapter.title === chapters[5].title) {
     showSeaShell();
     showCompass();
     showKey();
+  }
+
+  if (chapter.title === chapters[4].title) {
+    createBottle(chapters[2].instruction);
+  }
+  /**
+   * Creates the element 'bottle'.
+   * @param {*} message
+   */
+  function createBottle(message) {
+    const messageBottle = document.createElement("img");
+    messageBottle.setAttribute("src", "images/bottle-img1.png");
+    messageBottle.className = "message-bottle";
+    imageContainer.append(messageBottle);
+    messageBottle.addEventListener("click", () => {
+      showMessage(message);
+      imageContainer.removeChild(messageBottle);
+    });
+  }
+  /**
+   * Displays a message with the instruction to be followed
+   * @param {*} message
+   */
+  function showMessage(message) {
+    const messageContainer = document.createElement("div");
+    const text = document.createElement("p");
+    const closeBtn = document.createElement("button");
+    closeBtn.className = "close-btn";
+    closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    messageContainer.className = "message-container";
+    text.textContent = message;
+    imageContainer.append(messageContainer);
+    messageContainer.append(text);
+    messageContainer.append(closeBtn);
+
+    closeBtn.addEventListener("click", () => {
+      console.log("hellommmm");
+      messageContainer.style.display = "none";
+    });
   }
   /**
    * Shows the hidden map and the element "hidden-map" is added to the inventory list
