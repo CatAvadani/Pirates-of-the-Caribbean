@@ -32,8 +32,8 @@ const chapters = [
     },
   },
   {
-    title: "The Hidden Cove",
-    text: "Captain Storm, the hidden cove holds the key to unlocking the mysteries of the Pirates of the Caribbean: Cursed Seas. Explore its secrets! Only by uncovering the clues you can progress further into the heart of the adventure.",
+    title: "The Hidden Cave",
+    text: "Captain Storm, the hidden cave holds the key to unlocking the mysteries of the Pirates of the Caribbean: Cursed Seas. Explore its secrets! Only by uncovering the clues you can progress further into the heart of the adventure.",
     instruction: "Assemble the clues to reveal the next steps in your quest.",
     background: "images/cave-message1.png",
     button1: {
@@ -62,16 +62,17 @@ const chapters = [
   },
   {
     title: "Ghostly Ship",
-    text: "",
-    instruction: "",
+    text: "Captain Adrian Storm holds a newly revealed map, which directs him to a spectral ship shrouded in mist. Before venturing into this ghostly realm, a mysterious puzzle demands attention. The solution lies in finding an old, lost bottle hidden somewhere. Legends speak of a message within that must be carried forth.",
+    instruction:
+      "Uncover the hidden message that will serve as the guiding light beyond the Ghostly Ship. ",
     background: "images/ghost-ship1.png",
     button1: {
       title: "Return to the map",
-      nextChapter: 1,
+      nextChapter: 6,
     },
     button2: {
-      title: "Explore the beach",
-      nextChapter: 1, // create a new scene
+      title: "Mysterious Chamber",
+      nextChapter: 3,
     },
   },
   {
@@ -80,12 +81,26 @@ const chapters = [
     instruction: "Unlock the Path to the Ghostly Ship",
     background: "images/map-2.png",
     button1: {
-      title: "Ghostly Ship",
+      title: "Navigate to Ghostly Ship",
       nextChapter: 4,
     },
     button2: {
-      title: "Return to the cave",
-      nextChapter: 2, // create a new scene
+      title: "Confirm Items Collected",
+      nextChapter: 5,
+    },
+  },
+  {
+    title: "The Secrets of the Map",
+    text: "The map beckons you to search for key artifacts that will chart your course through the cursed seas. Explore the nooks and crannies to collect the following items: Celestial Compass, Enchanted Seashell, and Ancient Key",
+    instruction: "Unlock the Path to the Ghostly Ship",
+    background: "images/captain-img1.png",
+    button1: {
+      title: "Unlock More Secrets",
+      nextChapter: 2,
+    },
+    button2: {
+      title: "Return to Ghost Ship",
+      nextChapter: 4,
     },
   },
 ];

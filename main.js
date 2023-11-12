@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", main);
 
 function main() {
   displayChapter();
+  loadInventoryItem();
 }
 
 let inventory = [];
@@ -20,11 +21,13 @@ function displayChapter() {
   const backgroundScene = document.getElementById("background-img");
   const backgroundVideo = document.getElementById("background-video");
   const imageContainer = document.querySelector(".img-container");
+  const centerContainer = document.querySelector(".center-container");
   const videoContainer = document.querySelector(".video-container");
   const hiddenMap = document.getElementById("hidden-map");
   const seaShell = document.getElementById("seaShell");
   const key = document.getElementById("key");
   const compass = document.getElementById("compass");
+  const messageBottle = document.getElementById("message-bottle");
   const inventoryCollection = document.querySelector(".inventory-collection");
 
   // select the current chapter
@@ -45,78 +48,106 @@ function displayChapter() {
   });
 
   if (chapter.title === chapters[0].title) {
-    console.log(chapter.title);
     btn2.classList.add("hidden");
   } else {
     btn2.classList.remove("hidden");
     backgroundVideo.classList.add("hidden");
     imageContainer.classList.remove("hidden");
   }
+
   /** Created the condition for showing the map in the
    *  appropriate chapter
    */
   if (chapter.title === chapters[1].title) {
-    if (!inventory.includes("hidden-map")) showHiddenMap();
-    console.log(inventory);
+    btn1.classList.add("hidden");
+    btn2.classList.add("hidden");
+    showHiddenMap();
   }
+
   /** Display the inventory items in the appropriate chapter */
   if (chapter.title === chapters[5].title) {
     showSeaShell();
     showCompass();
     showKey();
+    console.log(inventory);
+    // btn1.addEventListener("click", console.log("i was clicked"));
+    if (
+      inventory.includes("seaShell") &&
+      inventory.includes("key") &&
+      inventory.includes("compass")
+    ) {
+      btn1.classList.remove("hidden");
+    }
+    //else {
+    //   alert("items not collected");
+    // }
+  }
+  if (chapter.title === chapters[3].title) {
+    btn1.classList.remove("hidden");
   }
 
   if (chapter.title === chapters[4].title) {
     createBottle(chapters[2].instruction);
+    btn1.classList.remove("hidden");
   }
+
   /**
    * Creates the element 'bottle'.
-   * @param {*} message
+   * @param {string} message
    */
   function createBottle(message) {
-    const messageBottle = document.createElement("img");
-    messageBottle.setAttribute("src", "images/bottle-img1.png");
-    messageBottle.className = "message-bottle";
-    imageContainer.append(messageBottle);
-    messageBottle.addEventListener("click", () => {
-      showMessage(message);
-      imageContainer.removeChild(messageBottle);
-    });
+    // const messageBottle = document.createElement("img");
+    // messageBottle.setAttribute("src", "images/bottle-img1.png");
+    // messageBottle.className = "message-bottle";
+    // imageContainer.append(messageBottle);
+    if (!inventory.includes("messageBottle")) {
+      messageBottle.classList.remove("hidden");
+      messageBottle.addEventListener("click", () => {
+        messageBottle.classList.add("hidden");
+        inventory.push("messageBottle");
+        showMessage(message);
+      });
+    }
   }
+
   /**
    * Displays a message with the instruction to be followed
-   * @param {*} message
+   * @param {string} message
    */
   function showMessage(message) {
     const messageContainer = document.createElement("div");
     const text = document.createElement("p");
     const closeBtn = document.createElement("button");
     closeBtn.className = "close-btn";
-    closeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    closeBtn.textContent = "X";
     messageContainer.className = "message-container";
     text.textContent = message;
-    imageContainer.append(messageContainer);
+    imageContainer.appendChild(messageContainer);
     messageContainer.append(text);
     messageContainer.append(closeBtn);
 
     closeBtn.addEventListener("click", () => {
-      console.log("hellommmm");
-      messageContainer.style.display = "none";
+      imageContainer.removeChild(messageContainer);
+      console.log("Message container closed");
     });
+
+    console.log("Message container created");
   }
+
   /**
    * Shows the hidden map and the element "hidden-map" is added to the inventory list
    */
   function showHiddenMap() {
-    if (!inventory.includes("hidden-map")) {
+    if (!inventory.includes("hiddenMap")) {
       hiddenMap.classList.remove("hidden");
       hiddenMap.addEventListener("click", () => {
-        inventory.push("hidden-map");
-        displayNextChapter(chapters[2].button1.nextChapter);
         hiddenMap.classList.add("hidden");
+        inventory.push("hiddenMap");
+        displayNextChapter(chapters[2].button1.nextChapter);
       });
     }
   }
+
   /**
    * Shows the seashell and the element "seaShell" is added to the inventory list
    */
@@ -124,15 +155,14 @@ function displayChapter() {
     if (!inventory.includes("seaShell")) {
       seaShell.classList.remove("hidden");
       seaShell.addEventListener("click", () => {
+        console.log();
         inventory.push("seaShell");
         seaShell.classList.add("hidden");
-        const seaShellImage = document.createElement("img");
-        seaShellImage.classList.add("inventory-item");
-        seaShellImage.setAttribute("src", "images/shell1.png");
-        inventoryCollection.appendChild(seaShellImage);
+        createItemImage("images/shell1.png");
       });
     }
   }
+
   /**
    * Shows the key and the element "key" is added to the inventory list
    */
@@ -142,13 +172,11 @@ function displayChapter() {
       key.addEventListener("click", () => {
         inventory.push("key");
         key.classList.add("hidden");
-        const keyImage = document.createElement("img");
-        keyImage.classList.add("inventory-item");
-        keyImage.setAttribute("src", "images/key1.png");
-        inventoryCollection.appendChild(keyImage);
+        createItemImage("images/key1.png");
       });
     }
   }
+
   /**
    * Shows the compass and the element "compass" is added to the inventory list
    */
@@ -158,19 +186,43 @@ function displayChapter() {
       compass.addEventListener("click", () => {
         inventory.push("compass");
         compass.classList.add("hidden");
-        const compassImage = document.createElement("img");
-        compassImage.classList.add("inventory-item");
-        compassImage.setAttribute("src", "images/compass-artifact.png");
-        inventoryCollection.appendChild(compassImage);
+        createItemImage("images/compass-artifact.png");
       });
     }
   }
-  console.log(inventory);
+  function createItemImage(imageSource) {
+    const inventoryItem = document.createElement("img");
+    inventoryItem.classList.add("inventory-item");
+    inventoryItem.setAttribute("src", imageSource);
+    inventoryCollection.appendChild(inventoryItem);
+  }
+  saveInventoryItem();
+}
+
+/**
+ * Saves the global inventory array to local storage
+ */
+function saveInventoryItem() {
+  const itemString = JSON.stringify(inventory);
+  localStorage.setItem("inventory", itemString);
+}
+
+/**
+ * Loads the inventory item from local storage and
+ * saves it to the global inventory array
+ */
+function loadInventoryItem() {
+  if (localStorage.key("inventory")) {
+    const itemString = localStorage.getItem("inventory");
+    if (itemString !== null) {
+      inventory = JSON.parse(itemString);
+    }
+  }
 }
 
 /**
  * Renders the next scene.
- * @param {*} index
+ * @param {number} index
  */
 function displayNextChapter(index) {
   currentChapterIndex = index;

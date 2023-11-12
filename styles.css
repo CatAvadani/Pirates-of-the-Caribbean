@@ -143,7 +143,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
-  height: 70%;
+  height: 75%;
 }
 /* adding an overlay  */
 .video-container::after {
@@ -169,6 +169,7 @@ img {
 #chapter-instruction {
   max-width: 70%;
   margin: 0 auto;
+  line-height: 3rem;
 }
 .buttons {
   display: flex;
@@ -222,8 +223,8 @@ Inventory items
   cursor: pointer;
 }
 #hidden-map {
-  right: 20%;
-  bottom: 17%;
+  left: 5%;
+  bottom: 10%;
 }
 #seaShell {
   left: 25%;
@@ -259,7 +260,7 @@ Message bottle
 =============
 */
 
-.message-bottle {
+#message-bottle {
   position: absolute;
   height: 50px;
   width: 100px;
@@ -269,7 +270,7 @@ Message bottle
   animation: bounce 3s ease infinite;
   transition: var(--transition);
 }
-.message-bottle:hover {
+#message-bottle:hover {
   transform: scale(2);
   cursor: pointer;
 }
