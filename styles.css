@@ -129,3 +129,49 @@ button:hover {
   color: var(--color-white);
   border: 2px solid var(--color-white);
 }
+/*
+=============
+Inventory items
+=============
+*/
+.hidden-map {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: 10%;
+  bottom: 20%;
+  z-index: 5;
+  transition: var(--transition);
+}
+.hidden-map:hover {
+  transform: scale(5);
+  cursor: pointer;
+}
+.item {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  z-index: 2;
+  transition: var(--transition);
+}
+.item:hover {
+  transform: scale(2);
+  cursor: pointer;
+}
+#hidden-map {
+  right: 20%;
+  bottom: 17%;
+}
+#seaShell {
+  left: 25%;
+  bottom: 25%;
+}
+#key {
+  left: 20%;
+  top: 17%;
+}
+#compass {
+  height: 100px;
+  top: 20%;
+  right: 17%;
+}

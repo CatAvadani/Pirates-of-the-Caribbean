@@ -42,7 +42,7 @@ const chapters = [
     },
     button2: {
       title: "Go to the beach",
-      nextChapter: 4,
+      nextChapter: 5,
     },
   },
   {
@@ -75,12 +75,12 @@ const chapters = [
     },
   },
   {
-    title: "Chapter 5",
-    text: "",
-    instruction: "",
-    background: "images/cave-message1.png",
+    title: "The Secrets of the Map",
+    text: "The map beckons you to search for key artifacts that will chart your course through the cursed seas. Explore the nooks and crannies to collect the following items: Celestial Compass, Enchanted Seashell, and Ancient Key",
+    instruction: "Unlock the Path to the Ghostly Ship",
+    background: "images/map-2.png",
     button1: {
-      title: "Your answer",
+      title: "Ghostly Ship",
       nextScene: 2,
     },
     button2: {
