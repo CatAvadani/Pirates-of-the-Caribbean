@@ -183,34 +183,22 @@ button {
   font-family: var(--ff-primary);
   padding: 0.5rem 1.2rem;
   border-radius: 3rem;
-  border-color: transparent;
-  background-color: var(--color-white-0);
-  color: var(--color-black);
-  transition: all 0.3s linear;
-}
-button:hover {
   background-color: transparent;
   color: var(--color-white);
   border: 2px solid var(--color-white);
+  transition: all 0.3s linear;
+}
+button:hover {
+  border-color: transparent;
+  background-color: var(--color-white-0);
+  color: var(--color-black);
 }
 /*
 =============
 Inventory items
 =============
 */
-.hidden-map {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  left: 10%;
-  bottom: 20%;
-  z-index: 5;
-  transition: var(--transition);
-}
-.hidden-map:hover {
-  transform: scale(5);
-  cursor: pointer;
-}
+
 .item {
   position: absolute;
   height: 70px;
@@ -223,8 +211,9 @@ Inventory items
   cursor: pointer;
 }
 #hidden-map {
-  left: 5%;
-  bottom: 10%;
+  left: 10%;
+  bottom: 20%;
+  animation: bounce 3s ease infinite;
 }
 #seaShell {
   left: 25%;
@@ -243,7 +232,8 @@ Inventory items
 
 .inventory-collection {
   margin: 2rem auto;
-  width: 430px;
+  margin-top: 4rem;
+  width: 330px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 0.5rem;
@@ -270,10 +260,7 @@ Message bottle
   animation: bounce 3s ease infinite;
   transition: var(--transition);
 }
-#message-bottle:hover {
-  transform: scale(2);
-  cursor: pointer;
-}
+
 .message-container {
   position: absolute;
   left: 50%;
@@ -302,14 +289,15 @@ Message bottle
   color: var(--color-black);
   font-weight: bold;
   font-size: 3rem;
+  border-color: transparent;
   background-color: transparent;
   cursor: pinter;
   transition: var(--transition);
 }
 .close-btn:hover {
   transform: scale(2);
+  color: var(--color-white);
   background-color: transparent;
-  border-color: transparent;
 }
 
 /*

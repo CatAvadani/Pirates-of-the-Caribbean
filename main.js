@@ -58,7 +58,10 @@ function displayChapter() {
   };
 
   // Handle specific chapter conditions.
-  if (chapter.title === chapters[0].title) {
+  let title = chapter.title;
+
+  // Chapter - Introduction - Pirates of the Caribbean - Cursed Seas
+  if (title === chapters[0].title) {
     hideBtn(btn2);
   } else {
     showBtn(btn2);
@@ -66,30 +69,38 @@ function displayChapter() {
     imageContainer.classList.remove("hidden");
   }
 
-  /** Created the condition for showing the map in the
-   *  appropriate chapter
-   */
-  if (chapter.title === chapters[1].title) {
+  // Chapter 1 - The Lost Treasure Map
+  if (title === chapters[1].title) {
     hideBtn(btn1);
     hideBtn(btn2);
     showHiddenMap();
   }
 
-  function isThirdChapter() {
-    return chapter.title === chapters[2].title;
+  // Chapter 2 -The Hidden Cave
+  if (title === chapters[2].title) {
+    const yourAnswer = document.createElement("input");
+    yourAnswer.classList.add("input-answer");
+    centerContainer.appendChild(yourAnswer);
+    console.log("Your answer input created:", yourAnswer);
+    hideBtn(btn1);
   }
-  if (isThirdChapter()) {
-    // const yourAnswer = document.createElement("input");
-    // yourAnswer.classList.add("input-answer");
-    // centerContainer.appendChild(yourAnswer);
-    // console.log("Your answer input created:", yourAnswer);
-    // hideBtn(btn1);
-  } else if (chapter.title === chapters[5].title) {
+
+  // Chapter 3 - Mysterious Chamber
+  if (chapter.title === chapters[3].title) {
+    showBtn(btn1);
+  }
+  // Chapter 4 - Ghostly Ship
+  if (chapter.title === chapters[4].title) {
+    createBottle(chapter.message);
+    showBtn(btn1);
+  }
+
+  // Chapter 5 - The Secrets of the Map
+  if (chapter.title === chapters[5].title) {
     /** Display the inventory items in the appropriate chapter */
     showSeaShell();
     showCompass();
     showKey();
-
     // Check if specific items are collected to show a button.
     btn2.onclick = () => {
       if (
@@ -98,18 +109,13 @@ function displayChapter() {
         inventory.includes("compass")
       ) {
         showBtn(btn1);
+        hideBtn(btn2);
+        chapterInstruction.textContent = chapters[5].instruction1;
       } else {
         alert("items not collected");
       }
     };
-  } else if (chapter.title === chapters[3].title) {
-    showBtn(btn1);
-  } else if (chapter.title === chapters[4].title) {
-    const message = "Journey into the depths, where shadows reveal the path.";
-    createBottle(message);
-    showBtn(btn1);
   }
-
   // Saves the inventory state after each chapter.
   saveInventoryItem();
   console.log(inventory);
@@ -148,10 +154,7 @@ function displayChapter() {
 
     closeBtn.onclick = () => {
       imageContainer.removeChild(messageContainer);
-      console.log("Message container closed");
     };
-
-    console.log("Message container created");
   }
 
   /**
@@ -176,7 +179,6 @@ function displayChapter() {
     if (!inventory.includes("seaShell")) {
       seaShell.classList.remove("hidden");
       seaShell.onclick = () => {
-        console.log();
         inventory.push("seaShell");
         seaShell.classList.add("hidden");
         createItemImage("images/shell1.png");

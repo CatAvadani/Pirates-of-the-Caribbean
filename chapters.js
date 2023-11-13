@@ -18,7 +18,7 @@ const chapters = [
 
   {
     title: "The Lost Treasure Map",
-    text: "Captain Adrian Storm, your boots sink into the soft sands of a desolate island, the air is thick with a scent of salt. You notice a peculiar glint beneath the palm trees. The map! Its weathered surface bears the marks of countless journeys and reveals cryptic symbols hinting at the hidden treassure. ",
+    text: "Captain Adrian Storm, your boots sink into the soft sands of a desolate island, the air is thick with a scent of salt. You notice a peculiar glint beneath the palm trees. The map! Its weathered surface bears the marks of countless journeys and reveals cryptic symbols hinting at the hidden treasure. ",
     instruction:
       "Pickup the mysterious map! Only with the map in hand can you unveil the mysteries that lie ahead. ",
     background: "images/chapter-1.png",
@@ -63,9 +63,10 @@ const chapters = [
   },
   {
     title: "Ghostly Ship",
-    text: "Captain Adrian Storm holds a newly revealed map, which directs him to a spectral ship shrouded in mist. Before venturing into this ghostly realm, a mysterious puzzle demands attention. The solution lies in finding an old message incripted in a mystic bottle hidden somewhere.",
+    text: "Captain Adrian Storm holds a newly revealed map, which directs him to a spectral ship shrouded in mist. Before venturing into this ghostly realm, a mysterious puzzle demands attention. The solution lies in finding an old message encrypted in a mystic bottle hidden somewhere.",
     instruction:
-      "Uncover the hidden message that will serve as the guiding light beyond the Ghostly Ship. ",
+      "Uncover the hidden message that will serve as the guiding light beyond the Ghostly Ship and continue the journey. ",
+    message: "Journey into the depths, where shadows reveal the path.",
     background: "images/ghost-ship1.png",
     button1: {
       title: "Return to the map",
@@ -79,14 +80,15 @@ const chapters = [
   {
     title: "The Secrets of the Map",
     text: "The map beckons you to search for key artifacts that will chart your course through the cursed seas. Explore the nooks and crannies to collect the following items: Celestial Compass, Enchanted Seashell, and Ancient Key",
-    instruction: "Unlock the Path to the Ghostly Ship",
+    instruction: "Unlock the path to the Ghostly Ship",
+    instruction1: "You unlocked the path to the Ghostly Ship",
     background: "images/map-2.png",
     button1: {
       title: "Navigate to Ghostly Ship",
       nextChapter: 4,
     },
     button2: {
-      title: "Confirm Items Collected",
+      title: "Confirm All Items Collected",
       nextChapter: 5,
     },
   },
