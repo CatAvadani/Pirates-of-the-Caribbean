@@ -92,7 +92,7 @@ function displayChapter() {
 
   // Chapter 4 - Ghostly Ship
   if (chapter.title === chapters[4].title) {
-    createBottle();
+    createBottle(chapter.message);
   }
 
   // Chapter 5 - The Secrets of the Map
@@ -126,20 +126,26 @@ function displayChapter() {
    * Creates the element 'bottle'.
    * @param {string} message - The message to be displayed when the bottle is clicked.
    */
-  function createBottle() {
+  function createBottle(message) {
     // Check if the "messageBottle" is not already in the inventory.
     if (!inventory.includes("messageBottle")) {
-      const messageBottle = document.createElement("img");
-      messageBottle.setAttribute("src", "images/bottle-img1.png");
-      messageBottle.className = "messageBottle";
-      imageContainer.append(messageBottle);
+      // Check if a bottle element with the class 'created-bottle' already exists.
+      let existingBottle = document.querySelector(".created-bottle");
 
-      messageBottle.classList.remove("hidden");
-      messageBottle.addEventListener("click", () => {
-        messageBottle.classList.add("hidden");
-        inventory.push("messageBottle");
-        showMessage(chapter.message);
-      });
+      if (!existingBottle) {
+        // Create the bottle element.
+        const messageBottle = document.createElement("img");
+        messageBottle.setAttribute("src", "images/bottle-img1.png");
+        messageBottle.className = "messageBottle created-bottle";
+        imageContainer.append(messageBottle);
+
+        // Attach the click event to the newly created bottle.
+        messageBottle.onclick = () => {
+          messageBottle.classList.add("hidden");
+          inventory.push("messageBottle");
+          showMessage(message);
+        };
+      }
     }
   }
 
