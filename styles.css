@@ -311,3 +311,21 @@ Message bottle
   background-color: transparent;
   border-color: transparent;
 }
+
+/*
+=============
+Input Message
+=============
+*/
+
+.input-answer {
+  height: 3rem;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-size: var(--font-size-p);
+  padding: 1rem;
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  z-index: 5;
+}

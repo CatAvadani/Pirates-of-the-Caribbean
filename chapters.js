@@ -34,7 +34,8 @@ const chapters = [
   {
     title: "The Hidden Cave",
     text: "Captain Storm, the hidden cave holds the key to unlocking the mysteries of the Pirates of the Caribbean: Cursed Seas. Explore its secrets! Only by uncovering the clues you can progress further into the heart of the adventure.",
-    instruction: "Assemble the clues to reveal the next steps in your quest.",
+    instruction:
+      "Legends speak of a message that must be carried forth to reveal the next steps of your quest. Did you find it? ",
     background: "images/cave-message1.png",
     button1: {
       title: "Solve puzzle",
@@ -47,7 +48,7 @@ const chapters = [
   },
   {
     title: " Mysterious Chamber",
-    text: "Before you lies a room adorned with forgotten pirate relics and symbols etched into the stone. At the center, a pedestal holds a peculiar artifact—a celestial compass with the power to guide one through the supernatural realms.",
+    text: "Before you lies a room adorned with forgotten pirate relics and symbols carved into the stone. At the center, a pedestal holds a peculiar artifact—a celestial compass with the power to guide one through the supernatural realms.",
     instruction:
       "Unlock the power of the celestial compass to reveal the next destination.",
     background: "images/chapter-3.png",
@@ -62,7 +63,7 @@ const chapters = [
   },
   {
     title: "Ghostly Ship",
-    text: "Captain Adrian Storm holds a newly revealed map, which directs him to a spectral ship shrouded in mist. Before venturing into this ghostly realm, a mysterious puzzle demands attention. The solution lies in finding an old, lost bottle hidden somewhere. Legends speak of a message within that must be carried forth.",
+    text: "Captain Adrian Storm holds a newly revealed map, which directs him to a spectral ship shrouded in mist. Before venturing into this ghostly realm, a mysterious puzzle demands attention. The solution lies in finding an old message incripted in a mystic bottle hidden somewhere.",
     instruction:
       "Uncover the hidden message that will serve as the guiding light beyond the Ghostly Ship. ",
     background: "images/ghost-ship1.png",
@@ -90,16 +91,16 @@ const chapters = [
     },
   },
   {
-    title: "The Secrets of the Map",
-    text: "The map beckons you to search for key artifacts that will chart your course through the cursed seas. Explore the nooks and crannies to collect the following items: Celestial Compass, Enchanted Seashell, and Ancient Key",
-    instruction: "Unlock the Path to the Ghostly Ship",
+    title: "Unveiling the Map's Mysteries",
+    text: "The map holds secrets yet undiscovered, urging you to go deeper into its cryptic symbols. Your quest now is to unlock its hidden truths. The map whispers of additional artifacts that could further illuminate your path through the cursed seas. Seek the following items: Forgotten Sextant, Moonlit Quill, and Tidal Chart.",
+    instruction: "Decipher the Map's Enigmas",
     background: "images/captain-img1.png",
     button1: {
-      title: "Unlock More Secrets",
+      title: "Embark on the New Quest",
       nextChapter: 2,
     },
     button2: {
-      title: "Return to Ghost Ship",
+      title: "Return to Ghostly Ship",
       nextChapter: 4,
     },
   },

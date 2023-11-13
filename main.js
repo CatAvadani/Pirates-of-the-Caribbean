@@ -1,17 +1,26 @@
+/**
+ * Entry point of the application. Initializes the display of the first chapter and loads inventory items.
+ */
 window.addEventListener("DOMContentLoaded", main);
 
+/**
+ * Main function that initializes the application.
+ */
 function main() {
+  // Display the current chapter and load inventory items.
   displayChapter();
   loadInventoryItem();
 }
 
+// Global variable to store inventory items.
 let inventory = [];
 
 /**
- * Display the current scene
+ * Display the current scene based on
+ * the current chapter index.
  */
 function displayChapter() {
-  // select the elements
+  // Select the HTML elements used in the current chapter.
   const chapterTitle = document.getElementById("chapter-title");
   const chapterDescription = document.getElementById("chapter-description");
   const chapterInstruction = document.getElementById("chapter-instruction");
@@ -30,9 +39,10 @@ function displayChapter() {
   const messageBottle = document.getElementById("message-bottle");
   const inventoryCollection = document.querySelector(".inventory-collection");
 
-  // select the current chapter
+  // Select the current chapter
   const chapter = chapters[currentChapterIndex];
 
+  // Update the HTML elements with the current chapter's information.
   chapterTitle.textContent = chapter.title;
   chapterDescription.textContent = chapter.text;
   chapterInstruction.textContent = chapter.instruction;
@@ -40,17 +50,18 @@ function displayChapter() {
   btn1.textContent = chapter.button1.title;
   btn2.textContent = chapter.button2.title;
 
-  btn1.addEventListener("click", () => {
+  btn1.onclick = () => {
     displayNextChapter(chapter.button1.nextChapter);
-  });
-  btn2.addEventListener("click", () => {
+  };
+  btn2.onclick = () => {
     displayNextChapter(chapter.button2.nextChapter);
-  });
+  };
 
+  // Handle specific chapter conditions.
   if (chapter.title === chapters[0].title) {
-    btn2.classList.add("hidden");
+    hideBtn(btn2);
   } else {
-    btn2.classList.remove("hidden");
+    showBtn(btn2);
     backgroundVideo.classList.add("hidden");
     imageContainer.classList.remove("hidden");
   }
@@ -59,60 +70,69 @@ function displayChapter() {
    *  appropriate chapter
    */
   if (chapter.title === chapters[1].title) {
-    btn1.classList.add("hidden");
-    btn2.classList.add("hidden");
+    hideBtn(btn1);
+    hideBtn(btn2);
     showHiddenMap();
   }
 
-  /** Display the inventory items in the appropriate chapter */
-  if (chapter.title === chapters[5].title) {
+  function isThirdChapter() {
+    return chapter.title === chapters[2].title;
+  }
+  if (isThirdChapter()) {
+    // const yourAnswer = document.createElement("input");
+    // yourAnswer.classList.add("input-answer");
+    // centerContainer.appendChild(yourAnswer);
+    // console.log("Your answer input created:", yourAnswer);
+    // hideBtn(btn1);
+  } else if (chapter.title === chapters[5].title) {
+    /** Display the inventory items in the appropriate chapter */
     showSeaShell();
     showCompass();
     showKey();
-    console.log(inventory);
-    // btn1.addEventListener("click", console.log("i was clicked"));
-    if (
-      inventory.includes("seaShell") &&
-      inventory.includes("key") &&
-      inventory.includes("compass")
-    ) {
-      btn1.classList.remove("hidden");
-    }
-    //else {
-    //   alert("items not collected");
-    // }
-  }
-  if (chapter.title === chapters[3].title) {
-    btn1.classList.remove("hidden");
+
+    // Check if specific items are collected to show a button.
+    btn2.onclick = () => {
+      if (
+        inventory.includes("seaShell") &&
+        inventory.includes("key") &&
+        inventory.includes("compass")
+      ) {
+        showBtn(btn1);
+      } else {
+        alert("items not collected");
+      }
+    };
+  } else if (chapter.title === chapters[3].title) {
+    showBtn(btn1);
+  } else if (chapter.title === chapters[4].title) {
+    const message = "Journey into the depths, where shadows reveal the path.";
+    createBottle(message);
+    showBtn(btn1);
   }
 
-  if (chapter.title === chapters[4].title) {
-    createBottle(chapters[2].instruction);
-    btn1.classList.remove("hidden");
-  }
+  // Saves the inventory state after each chapter.
+  saveInventoryItem();
+  console.log(inventory);
 
   /**
    * Creates the element 'bottle'.
-   * @param {string} message
+   * @param {string} message - The message to be displayed when the bottle is clicked.
    */
   function createBottle(message) {
-    // const messageBottle = document.createElement("img");
-    // messageBottle.setAttribute("src", "images/bottle-img1.png");
-    // messageBottle.className = "message-bottle";
-    // imageContainer.append(messageBottle);
+    // Check if the "messageBottle" is not already in the inventory.
     if (!inventory.includes("messageBottle")) {
       messageBottle.classList.remove("hidden");
-      messageBottle.addEventListener("click", () => {
+      messageBottle.onclick = () => {
         messageBottle.classList.add("hidden");
         inventory.push("messageBottle");
         showMessage(message);
-      });
+      };
     }
   }
 
   /**
    * Displays a message with the instruction to be followed
-   * @param {string} message
+   * @param {string} message - The message to be displayed.
    */
   function showMessage(message) {
     const messageContainer = document.createElement("div");
@@ -126,10 +146,10 @@ function displayChapter() {
     messageContainer.append(text);
     messageContainer.append(closeBtn);
 
-    closeBtn.addEventListener("click", () => {
+    closeBtn.onclick = () => {
       imageContainer.removeChild(messageContainer);
       console.log("Message container closed");
-    });
+    };
 
     console.log("Message container created");
   }
@@ -140,11 +160,12 @@ function displayChapter() {
   function showHiddenMap() {
     if (!inventory.includes("hiddenMap")) {
       hiddenMap.classList.remove("hidden");
-      hiddenMap.addEventListener("click", () => {
+      hiddenMap.onclick = (e) => {
+        e.stopPropagation();
         hiddenMap.classList.add("hidden");
         inventory.push("hiddenMap");
         displayNextChapter(chapters[2].button1.nextChapter);
-      });
+      };
     }
   }
 
@@ -154,12 +175,12 @@ function displayChapter() {
   function showSeaShell() {
     if (!inventory.includes("seaShell")) {
       seaShell.classList.remove("hidden");
-      seaShell.addEventListener("click", () => {
+      seaShell.onclick = () => {
         console.log();
         inventory.push("seaShell");
         seaShell.classList.add("hidden");
         createItemImage("images/shell1.png");
-      });
+      };
     }
   }
 
@@ -169,11 +190,11 @@ function displayChapter() {
   function showKey() {
     if (!inventory.includes("key")) {
       key.classList.remove("hidden");
-      key.addEventListener("click", () => {
+      key.onclick = () => {
         inventory.push("key");
         key.classList.add("hidden");
         createItemImage("images/key1.png");
-      });
+      };
     }
   }
 
@@ -183,12 +204,28 @@ function displayChapter() {
   function showCompass() {
     if (!inventory.includes("compass")) {
       compass.classList.remove("hidden");
-      compass.addEventListener("click", () => {
+      compass.onclick = () => {
         inventory.push("compass");
         compass.classList.add("hidden");
         createItemImage("images/compass-artifact.png");
-      });
+      };
     }
+  }
+
+  /**
+   * Shows a selected button
+   * @param {*} btn
+   */
+  function showBtn(btn) {
+    btn.classList.remove("hidden");
+  }
+
+  /**
+   * Hides a selected button
+   * @param {*} btn
+   */
+  function hideBtn(btn) {
+    btn.classList.add("hidden");
   }
   function createItemImage(imageSource) {
     const inventoryItem = document.createElement("img");
@@ -196,7 +233,6 @@ function displayChapter() {
     inventoryItem.setAttribute("src", imageSource);
     inventoryCollection.appendChild(inventoryItem);
   }
-  saveInventoryItem();
 }
 
 /**
@@ -222,7 +258,7 @@ function loadInventoryItem() {
 
 /**
  * Renders the next scene.
- * @param {number} index
+ * @param {number} index - The index of the next chapter to be displayed.
  */
 function displayNextChapter(index) {
   currentChapterIndex = index;
