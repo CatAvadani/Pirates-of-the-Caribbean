@@ -82,6 +82,8 @@ const chapters = [
     text: "The map beckons you to search for key artifacts that will chart your course through the cursed seas. Explore the nooks and crannies to collect the following items: Celestial Compass, Enchanted Seashell, and Ancient Key",
     instruction: "Unlock the path to the Ghostly Ship",
     instruction1: "You unlocked the path to the Ghostly Ship",
+    instruction2:
+      "You have some missing items. You need to collect all of them to move forward.",
     background: "images/map-2.png",
     button1: {
       title: "Navigate to Ghostly Ship",

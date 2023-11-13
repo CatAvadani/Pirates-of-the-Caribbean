@@ -89,10 +89,10 @@ function displayChapter() {
   if (chapter.title === chapters[3].title) {
     showBtn(btn1);
   }
+
   // Chapter 4 - Ghostly Ship
   if (chapter.title === chapters[4].title) {
-    createBottle(chapter.message);
-    showBtn(btn1);
+    createBottle();
   }
 
   // Chapter 5 - The Secrets of the Map
@@ -111,8 +111,10 @@ function displayChapter() {
         showBtn(btn1);
         hideBtn(btn2);
         chapterInstruction.textContent = chapters[5].instruction1;
+        chapterInstruction.style.color = "white";
       } else {
-        alert("items not collected");
+        chapterInstruction.textContent = chapters[5].instruction2;
+        chapterInstruction.style.color = "#26160A";
       }
     };
   }
@@ -124,15 +126,20 @@ function displayChapter() {
    * Creates the element 'bottle'.
    * @param {string} message - The message to be displayed when the bottle is clicked.
    */
-  function createBottle(message) {
+  function createBottle() {
     // Check if the "messageBottle" is not already in the inventory.
     if (!inventory.includes("messageBottle")) {
+      const messageBottle = document.createElement("img");
+      messageBottle.setAttribute("src", "images/bottle-img1.png");
+      messageBottle.className = "messageBottle";
+      imageContainer.append(messageBottle);
+
       messageBottle.classList.remove("hidden");
-      messageBottle.onclick = () => {
+      messageBottle.addEventListener("click", () => {
         messageBottle.classList.add("hidden");
         inventory.push("messageBottle");
-        showMessage(message);
-      };
+        showMessage(chapter.message);
+      });
     }
   }
 
