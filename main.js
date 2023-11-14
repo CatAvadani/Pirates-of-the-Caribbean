@@ -87,7 +87,7 @@ function displayChapter() {
     userInputField.setAttribute(
       "placeholder",
       "Answer and go to the treasure..."
-    ); // Set a placeholder text
+    );
     userInputField.className = "user-input";
     centerContainer.appendChild(userInputField);
     chapterInstruction.style.width = "50%";
@@ -99,13 +99,12 @@ function displayChapter() {
       const userAnswer = userInputField.value.trim();
 
       // Check if the user's answer is correct
-      if (userAnswer.toLowerCase() === "hello") {
+      if (userAnswer.toLowerCase() === "atlantis") {
         chapterInstruction.style.color = "white";
         userInputField.classList.add("hidden");
         chapterInstruction.style.width = "70%";
         displayNextChapter(chapter.button1.nextChapter);
       } else {
-        // The answer is incorrect - you can display a message or take appropriate action
         chapterInstruction.textContent = chapter.instruction1;
         chapterInstruction.style.color = "#810D0D";
       }

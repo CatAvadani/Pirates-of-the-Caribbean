@@ -71,7 +71,7 @@ const chapters = [
     instruction1: "You unlocked new chapters, search for new clues.",
     instruction2: "You need to find the bottle first!",
     message:
-      "Journey into the depths, where shadows reveal their secrets. Remember the lost city name:  *** ATLANTIS ***   Or this will be lost forever! This is the key the unlock the hidden treasure.",
+      "Journey into the depths, where shadows reveal their secrets. The lost city name:  *** ATLANTIS ***  This is the key the unlock the hidden treasure. Remember it, or this will be lost forever! You will need it later. ",
     background: "images/ghost-ship1.png",
     button1: {
       title: "Return to the Map",
@@ -130,8 +130,8 @@ const chapters = [
   },
   {
     title: "The Hidden Treasure",
-    text: "Captain Adrian Storm, with unwavering determination, deciphers the final enigmas of the map. The path to the cursed treasure is unveiled! The crew rejoices as the ship sails toward the fabled location. The treasure, guarded by the supernatural forces, is finally within reach. ",
-    instruction: "The curse is broken, and the seas are conquered.",
+    text: "Captain Adrian Storm, deciphers the final enigmas of the map. The path to the cursed treasure is unveiled! ",
+    instruction: "Congratulation, you found the treasure!",
     background: "images/treasure-img.png",
     button1: {
       title: "End the Adventure",
