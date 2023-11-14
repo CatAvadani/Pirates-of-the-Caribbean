@@ -24,19 +24,16 @@ function displayChapter() {
   const chapterTitle = document.getElementById("chapter-title");
   const chapterDescription = document.getElementById("chapter-description");
   const chapterInstruction = document.getElementById("chapter-instruction");
-  const buttons = document.querySelector(".buttons");
   const btn1 = document.getElementById("btn-1");
   const btn2 = document.getElementById("btn-2");
   const backgroundScene = document.getElementById("background-img");
   const backgroundVideo = document.getElementById("background-video");
   const imageContainer = document.querySelector(".img-container");
   const centerContainer = document.querySelector(".center-container");
-  const videoContainer = document.querySelector(".video-container");
   const hiddenMap = document.getElementById("hidden-map");
   const seaShell = document.getElementById("seaShell");
   const key = document.getElementById("key");
   const compass = document.getElementById("compass");
-  const messageBottle = document.getElementById("message-bottle");
   const inventoryCollection = document.querySelector(".inventory-collection");
 
   // Select the current chapter
@@ -78,13 +75,18 @@ function displayChapter() {
 
   // Chapter 2 -The Hidden Cave
   if (title === chapters[2].title) {
-    const yourAnswer = document.createElement("input");
-    yourAnswer.classList.add("input-answer");
-    centerContainer.appendChild(yourAnswer);
-    console.log("Your answer input created:", yourAnswer);
-    hideBtn(btn1);
+    if (!document.querySelector(".input-answer")) {
+      const yourAnswer = document.createElement("input");
+      yourAnswer.classList.add("input-answer");
+      centerContainer.append(yourAnswer);
+      hideBtn(btn1);
+      btn2.onclick = () => {
+        yourAnswer.classList.add("hidden");
+        showBtn(btn1);
+        hideBtn(btn2);
+      };
+    }
   }
-
   // Chapter 3 - Mysterious Chamber
   if (chapter.title === chapters[3].title) {
     showBtn(btn1);
@@ -101,13 +103,13 @@ function displayChapter() {
     showSeaShell();
     showCompass();
     showKey();
+
     // Check if specific items are collected to show a button.
     btn2.onclick = () => {
-      if (
-        inventory.includes("seaShell") &&
-        inventory.includes("key") &&
-        inventory.includes("compass")
-      ) {
+      const isSeaShellPresent = inventory.includes("seaShell");
+      const isKeyPresent = inventory.includes("key");
+      const isCompassPresent = inventory.includes("compass");
+      if (isSeaShellPresent && isKeyPresent && isCompassPresent) {
         showBtn(btn1);
         hideBtn(btn2);
         chapterInstruction.textContent = chapters[5].instruction1;
@@ -118,8 +120,6 @@ function displayChapter() {
       }
     };
   }
-  // Saves the inventory state after each chapter.
-  saveInventoryItem();
   console.log(inventory);
 
   /**
@@ -127,8 +127,9 @@ function displayChapter() {
    * @param {string} message - The message to be displayed when the bottle is clicked.
    */
   function createBottle(message) {
+    const isMessageBottlePresent = inventory.includes("messageBottle");
     // Check if the "messageBottle" is not already in the inventory.
-    if (!inventory.includes("messageBottle")) {
+    if (!isMessageBottlePresent) {
       // Check if a bottle element with the class 'created-bottle' already exists.
       let existingBottle = document.querySelector(".created-bottle");
 
@@ -143,6 +144,7 @@ function displayChapter() {
         messageBottle.onclick = () => {
           messageBottle.classList.add("hidden");
           inventory.push("messageBottle");
+          saveInventoryItem();
           showMessage(message);
         };
       }
@@ -180,6 +182,7 @@ function displayChapter() {
         e.stopPropagation();
         hiddenMap.classList.add("hidden");
         inventory.push("hiddenMap");
+        saveInventoryItem();
         displayNextChapter(chapters[2].button1.nextChapter);
       };
     }
@@ -193,6 +196,7 @@ function displayChapter() {
       seaShell.classList.remove("hidden");
       seaShell.onclick = () => {
         inventory.push("seaShell");
+        saveInventoryItem();
         seaShell.classList.add("hidden");
         createItemImage("images/shell1.png");
       };
@@ -207,6 +211,7 @@ function displayChapter() {
       key.classList.remove("hidden");
       key.onclick = () => {
         inventory.push("key");
+        saveInventoryItem();
         key.classList.add("hidden");
         createItemImage("images/key1.png");
       };
@@ -221,6 +226,7 @@ function displayChapter() {
       compass.classList.remove("hidden");
       compass.onclick = () => {
         inventory.push("compass");
+        saveInventoryItem();
         compass.classList.add("hidden");
         createItemImage("images/compass-artifact.png");
       };
@@ -248,6 +254,9 @@ function displayChapter() {
     inventoryItem.setAttribute("src", imageSource);
     inventoryCollection.appendChild(inventoryItem);
   }
+
+  // Saves the inventory state after each chapter.
+  saveInventoryItem();
 }
 
 /**

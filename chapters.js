@@ -65,7 +65,7 @@ const chapters = [
     title: "Ghostly Ship",
     text: "Captain Adrian Storm holds a newly revealed map, which directs him to a spectral ship shrouded in mist. Before venturing into this ghostly realm, a mysterious puzzle demands attention. The solution lies in finding an old message encrypted in a mystic bottle hidden somewhere.",
     instruction:
-      "Uncover the hidden message that will serve as the guiding light beyond the Ghostly Ship and continue the journey. ",
+      "Uncover the hidden message that will serve as the guiding light beyond the Ghostly Ship and continue the journey. Remember the message! It will be lost forever!",
     message: "Journey into the depths, where shadows reveal the path.",
     background: "images/ghost-ship1.png",
     button1: {

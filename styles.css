@@ -9,7 +9,7 @@
   --color-white: #ffffff;
   --color-white-0: rgba(255, 255, 255, 0.6);
   --color-black: #001e29;
-  --leter-spacing: 0.1rem;
+  --letter-spacing: 0.1rem;
   --font-size-h1: 3.2rem;
   --font-size-h2: 2rem;
   --font-size-p: 1.7rem;
@@ -157,7 +157,7 @@ img {
 }
 
 #chapter-title {
-  letter-spacing: var(--leter-spacing);
+  letter-spacing: var(--letter-spacing);
   animation: slideFromRight 5s ease-in-out 1;
 }
 #chapter-description {
@@ -192,6 +192,7 @@ button:hover {
   border-color: transparent;
   background-color: var(--color-white-0);
   color: var(--color-black);
+  cursor: pointer;
 }
 /*
 =============
@@ -272,7 +273,7 @@ Message bottle
   place-items: center;
   transform: translate(-50%, -50%);
   color: var(--color-black);
-  background-image: url(/images/message2.png);
+  background-image: url(images/message2.png);
   background-size: cover;
   z-index: 2;
 }
@@ -314,7 +315,7 @@ Input Message
   font-size: var(--font-size-p);
   padding: 1rem;
   position: absolute;
-  left: 20%;
-  top: 20%;
+  top: 50%;
+  left: 50%;
   z-index: 5;
 }
