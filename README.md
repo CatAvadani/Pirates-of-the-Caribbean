@@ -9,6 +9,7 @@ Table of Contents
 3. Usage
 4. How to Play
 5. Levels/Chapters
+6. Images Attribution
 
 Introduction
 
@@ -63,3 +64,7 @@ Levels/Chapters
 - The final chapter where the player's choices lead to different endings.
 
 Inspired by the "Pirates of the Caribbean" (film series) produced by Jerry Bruckheimer.
+
+Images Attribution
+
+The images used in this project are generated using artificial intelligence (AI) technologies - https://docs.midjourney.com/
