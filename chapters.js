@@ -99,15 +99,56 @@ const chapters = [
   {
     title: "Unveiling the Map's Mysteries",
     text: "The map holds secrets yet undiscovered, urging you to go deeper into its cryptic symbols. Your quest now is to unlock its hidden truths. The map whispers of additional enigmas that could further illuminate your path through the cursed seas.",
-    instruction: "Decipher the Map's Enigmas",
+    instruction: "Decipher the Map's Enigmas or Return Home",
     background: "images/captain-img1.png",
     button1: {
       title: "Embark on the New Quest",
       nextChapter: 2,
     },
     button2: {
-      title: "Return to Ghostly Ship",
-      nextChapter: 4,
+      title: "Return Home",
+      nextChapter: 7,
+    },
+  },
+  {
+    title: "Back Home to Port Royal",
+    text: "Captain Adrian Storm, after an adventurous journey through the cursed seas, decides to return to Port Royal. The mysteries of the map weigh heavily on his mind. As you sail back, the memories of the twisted adventure linger, and the ghostly ship fade away.",
+    instruction:
+      "Reflect on the challenges faced and the treasures left behind.",
+    background: "images/return-home.png",
+    button1: {
+      title: "End the Adventure",
+      nextChapter: 9,
+    },
+    button2: {
+      title: "Return to the Map",
+      nextChapter: 6,
+    },
+  },
+  {
+    title: "Triumph of the Seas",
+    text: "Captain Adrian Storm, with unwavering determination, deciphers the final enigmas of the map. The path to the cursed treasure is unveiled! The crew rejoices as the ship sails toward the fabled location. The treasure, guarded by the supernatural forces, is finally within reach. ",
+    instruction: "The curse is broken, and the seas are conquered.",
+    background: "images/treasure-img.png",
+    button1: {
+      title: "End the Adventure",
+      nextChapter: 9,
+    },
+    button2: {
+      title: "",
+    },
+  },
+  {
+    title: "The Journey's End",
+    text: "Captain Adrian Storm's journey concludes. Whether he returned home or claimed the cursed treasure, the adventures in the Caribbean have left an indelible mark. The legends of the cursed seas will be told for generations to come.",
+    instruction:
+      "Thank you for playing 'Pirates of the Caribbean - Cursed Seas'! Your choices shaped the destiny of Captain Adrian Storm.",
+    background: "images/end-game1.png",
+    button1: {
+      title: "",
+    },
+    button2: {
+      title: "",
     },
   },
 ];

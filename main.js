@@ -26,6 +26,7 @@ function displayChapter() {
   const chapterInstruction = document.getElementById("chapter-instruction");
   const btn1 = document.getElementById("btn-1");
   const btn2 = document.getElementById("btn-2");
+  const buttons = document.querySelector(".buttons");
   const backgroundScene = document.getElementById("background-img");
   const backgroundVideo = document.getElementById("background-video");
   const imageContainer = document.querySelector(".img-container");
@@ -35,6 +36,7 @@ function displayChapter() {
   const key = document.getElementById("key");
   const compass = document.getElementById("compass");
   const inventoryCollection = document.querySelector(".inventory-collection");
+  const inventoryItems = document.querySelectorAll(".inventory-item");
 
   // Select the current chapter
   const chapter = chapters[currentChapterIndex];
@@ -135,6 +137,19 @@ function displayChapter() {
     };
   }
 
+  // Chapter 7 - Back Home to Port Royal
+  if (chapter.title === chapters[7].title) {
+    inventoryItems.forEach((item) => {
+      item.classList.add("hidden");
+    });
+  }
+
+  // Chapter 9 - The Journey's End
+  if (chapter.title === chapters[9].title) {
+    // btn1.style.display = "none";
+    hideBtn(btn1);
+    hideBtn(btn2);
+  }
   /**
    * Creates the element 'bottle'.
    * @param {string} message - The message to be displayed when the bottle is clicked.
