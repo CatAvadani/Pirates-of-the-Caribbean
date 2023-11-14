@@ -94,7 +94,21 @@ function displayChapter() {
 
   // Chapter 4 - Ghostly Ship
   if (chapter.title === chapters[4].title) {
+    // Check if the "messageBottle" is not already in the inventory.
     createBottle(chapter.message);
+    hideBtn(btn1);
+    btn2.onclick = () => {
+      const isMessageBottlePresent = inventory.includes("messageBottle");
+      if (isMessageBottlePresent) {
+        showBtn(btn1);
+        hideBtn(btn2);
+        chapterInstruction.textContent = chapter.instruction1;
+        chapterInstruction.style.color = "white";
+      } else {
+        chapterInstruction.textContent = chapter.instruction2;
+        chapterInstruction.style.color = "#810D0D";
+      }
+    };
   }
 
   // Chapter 5 - The Secrets of the Map
@@ -112,43 +126,33 @@ function displayChapter() {
       if (isSeaShellPresent && isKeyPresent && isCompassPresent) {
         showBtn(btn1);
         hideBtn(btn2);
-        chapterInstruction.textContent = chapters[5].instruction1;
+        chapterInstruction.textContent = chapter.instruction1;
         chapterInstruction.style.color = "white";
       } else {
-        chapterInstruction.textContent = chapters[5].instruction2;
-        chapterInstruction.style.color = "#26160A";
+        chapterInstruction.textContent = chapter.instruction2;
+        chapterInstruction.style.color = "#810D0D";
       }
     };
   }
-  console.log(inventory);
 
   /**
    * Creates the element 'bottle'.
    * @param {string} message - The message to be displayed when the bottle is clicked.
    */
   function createBottle(message) {
-    const isMessageBottlePresent = inventory.includes("messageBottle");
-    // Check if the "messageBottle" is not already in the inventory.
-    if (!isMessageBottlePresent) {
-      // Check if a bottle element with the class 'created-bottle' already exists.
-      let existingBottle = document.querySelector(".created-bottle");
+    // Create the bottle element.
+    const messageBottle = document.createElement("img");
+    messageBottle.setAttribute("src", "images/bottle-img1.png");
+    messageBottle.className = "messageBottle ";
+    imageContainer.append(messageBottle);
 
-      if (!existingBottle) {
-        // Create the bottle element.
-        const messageBottle = document.createElement("img");
-        messageBottle.setAttribute("src", "images/bottle-img1.png");
-        messageBottle.className = "messageBottle created-bottle";
-        imageContainer.append(messageBottle);
-
-        // Attach the click event to the newly created bottle.
-        messageBottle.onclick = () => {
-          messageBottle.classList.add("hidden");
-          inventory.push("messageBottle");
-          saveInventoryItem();
-          showMessage(message);
-        };
-      }
-    }
+    // Attach the click event to the newly created bottle.
+    messageBottle.onclick = () => {
+      messageBottle.classList.add("hidden");
+      inventory.push("messageBottle");
+      saveInventoryItem();
+      showMessage(message);
+    };
   }
 
   /**

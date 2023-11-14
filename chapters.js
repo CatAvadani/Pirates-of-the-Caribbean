@@ -63,17 +63,19 @@ const chapters = [
   },
   {
     title: "Ghostly Ship",
-    text: "Captain Adrian Storm holds a newly revealed map, which directs him to a spectral ship shrouded in mist. Before venturing into this ghostly realm, a mysterious puzzle demands attention. The solution lies in finding an old message encrypted in a mystic bottle hidden somewhere.",
+    text: "Captain Adrian Storm holds a newly revealed map, which directs him to a spectral ship shrouded in mist. A mysterious puzzle demands attention. The solution lies in finding an old message encrypted in a mystic bottle hidden somewhere.",
     instruction:
-      "Uncover the hidden message that will serve as the guiding light beyond the Ghostly Ship and continue the journey. Remember the message! It will be lost forever!",
+      "Uncover and remember the hidden message! It will be lost forever!",
+    instruction1: "You unlocked new chapters, search for new clues.",
+    instruction2: "You need to find the bottle first!",
     message: "Journey into the depths, where shadows reveal the path.",
     background: "images/ghost-ship1.png",
     button1: {
-      title: "Return to the map",
+      title: "Return to the Map",
       nextChapter: 6,
     },
     button2: {
-      title: "Mysterious Chamber",
+      title: "Next",
       nextChapter: 3,
     },
   },
@@ -96,7 +98,7 @@ const chapters = [
   },
   {
     title: "Unveiling the Map's Mysteries",
-    text: "The map holds secrets yet undiscovered, urging you to go deeper into its cryptic symbols. Your quest now is to unlock its hidden truths. The map whispers of additional artifacts that could further illuminate your path through the cursed seas. Seek the following items: Forgotten Sextant, Moonlit Quill, and Tidal Chart.",
+    text: "The map holds secrets yet undiscovered, urging you to go deeper into its cryptic symbols. Your quest now is to unlock its hidden truths. The map whispers of additional enigmas that could further illuminate your path through the cursed seas.",
     instruction: "Decipher the Map's Enigmas",
     background: "images/captain-img1.png",
     button1: {
