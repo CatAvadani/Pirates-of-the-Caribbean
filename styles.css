@@ -217,7 +217,7 @@ Inventory items
   animation: bounce 3s ease infinite;
 }
 #seaShell {
-  left: 25%;
+  left: 17%;
   bottom: 25%;
 }
 #key {
@@ -226,7 +226,7 @@ Inventory items
 }
 #compass {
   height: 100px;
-  top: 20%;
+  bottom: 20%;
   right: 17%;
 }
 /*  inventory section */
@@ -279,6 +279,7 @@ Message bottle
 }
 .message-container p {
   width: 50%;
+  padding: 2.3rem;
   font-size: 2rem;
   font-weight: bold;
   line-height: 3rem;
@@ -308,14 +309,21 @@ Input Message
 =============
 */
 
-.input-answer {
-  height: 3rem;
-  background-color: var(--color-white);
-  color: var(--color-black);
+.user-input {
+  height: 4rem;
+  width: 30%;
+  border: 2px solid var(--color-white);
+  border-radius: 5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--color-white);
   font-size: var(--font-size-p);
   padding: 1rem;
   position: absolute;
-  top: 50%;
+  bottom: 4%;
   left: 50%;
+  transform: translate(-50%);
   z-index: 5;
+}
+.user-input::placeholder {
+  font-size: 1.5rem;
 }

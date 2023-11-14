@@ -77,17 +77,39 @@ function displayChapter() {
 
   // Chapter 2 -The Hidden Cave
   if (title === chapters[2].title) {
-    if (!document.querySelector(".input-answer")) {
-      const yourAnswer = document.createElement("input");
-      yourAnswer.classList.add("input-answer");
-      centerContainer.append(yourAnswer);
-      hideBtn(btn1);
-      btn2.onclick = () => {
-        yourAnswer.classList.add("hidden");
-        showBtn(btn1);
-        hideBtn(btn2);
-      };
-    }
+    inventoryItems.forEach((item) => {
+      item.classList.add("hidden");
+    });
+    const centerContainer = document.querySelector(".center-container");
+    // Create an input element
+    const userInputField = document.createElement("input");
+    userInputField.setAttribute("type", "text");
+    userInputField.setAttribute(
+      "placeholder",
+      "Answer and go to the treasure..."
+    ); // Set a placeholder text
+    userInputField.className = "user-input";
+    centerContainer.appendChild(userInputField);
+    chapterInstruction.style.width = "50%";
+    // Assuming 'btn1' is the button that will check the user's answer
+    const btn1 = document.getElementById("btn-1");
+
+    btn1.onclick = () => {
+      // Get the user's input and trim white spaces
+      const userAnswer = userInputField.value.trim();
+
+      // Check if the user's answer is correct
+      if (userAnswer.toLowerCase() === "hello") {
+        chapterInstruction.style.color = "white";
+        userInputField.classList.add("hidden");
+        chapterInstruction.style.width = "70%";
+        displayNextChapter(chapter.button1.nextChapter);
+      } else {
+        // The answer is incorrect - you can display a message or take appropriate action
+        chapterInstruction.textContent = chapter.instruction1;
+        chapterInstruction.style.color = "#810D0D";
+      }
+    };
   }
   // Chapter 3 - Mysterious Chamber
   if (chapter.title === chapters[3].title) {
@@ -142,6 +164,10 @@ function displayChapter() {
     inventoryItems.forEach((item) => {
       item.classList.add("hidden");
     });
+  }
+  // Chapter 8 - The Hidden Treasure
+  if (chapter.title === chapters[8].title) {
+    hideBtn(btn2);
   }
 
   // Chapter 9 - The Journey's End
@@ -202,7 +228,7 @@ function displayChapter() {
         hiddenMap.classList.add("hidden");
         inventory.push("hiddenMap");
         saveInventoryItem();
-        displayNextChapter(chapters[2].button1.nextChapter);
+        displayNextChapter(chapters[1].button1.nextChapter);
       };
     }
   }

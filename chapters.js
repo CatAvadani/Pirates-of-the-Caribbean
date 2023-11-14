@@ -24,7 +24,7 @@ const chapters = [
     background: "images/chapter-1.png",
     button1: {
       title: "Examen the Clues Revealed",
-      nextChapter: 2,
+      nextChapter: 5,
     },
     button2: {
       title: "The Hidden Cave",
@@ -35,15 +35,17 @@ const chapters = [
     title: "The Hidden Cave",
     text: "Captain Storm, the hidden cave holds the key to unlocking the mysteries of the Pirates of the Caribbean: Cursed Seas. Explore its secrets! Only by uncovering the clues you can progress further into the heart of the adventure.",
     instruction:
-      "Legends speak of a message that must be carried forth to reveal the next steps of your quest. Did you find it? ",
+      "Legends speak of a message. The message will unlock the hidden treasure! ",
+    instruction1: "This is not the correct answer. Try again!",
+    instruction2: "Your answer is correct! Proceed to the hidden treasure.",
     background: "images/cave-message1.png",
     button1: {
-      title: "Solve puzzle",
-      nextChapter: 5,
+      title: "The Hidden Treasure",
+      nextChapter: 8,
     },
     button2: {
-      title: "Go to the beach",
-      nextChapter: 5,
+      title: "Return Home",
+      nextChapter: 7,
     },
   },
   {
@@ -68,7 +70,8 @@ const chapters = [
       "Uncover and remember the hidden message! It will be lost forever!",
     instruction1: "You unlocked new chapters, search for new clues.",
     instruction2: "You need to find the bottle first!",
-    message: "Journey into the depths, where shadows reveal the path.",
+    message:
+      "Journey into the depths, where shadows reveal their secrets. Remember the lost city name:  *** ATLANTIS ***   Or this will be lost forever! This is the key the unlock the hidden treasure.",
     background: "images/ghost-ship1.png",
     button1: {
       title: "Return to the Map",
@@ -126,7 +129,7 @@ const chapters = [
     },
   },
   {
-    title: "Triumph of the Seas",
+    title: "The Hidden Treasure",
     text: "Captain Adrian Storm, with unwavering determination, deciphers the final enigmas of the map. The path to the cursed treasure is unveiled! The crew rejoices as the ship sails toward the fabled location. The treasure, guarded by the supernatural forces, is finally within reach. ",
     instruction: "The curse is broken, and the seas are conquered.",
     background: "images/treasure-img.png",
