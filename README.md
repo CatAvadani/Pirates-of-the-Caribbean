@@ -1,33 +1,39 @@
 Pirates of the Caribbean - Cursed Seas
 
-Introduction
-
-"Pirates of the Caribbean - Cursed Seas" is an interactive text-based adventure that thrusts you into the heart of mysterious waters of the Caribbean, where tales of cursed pirate treasure travel through the ages. Embark on a daring odyssey as Captain Adrian Storm, navigating through five challenging levels filled with supernatural forces, crafty adversaries, and the mysteries of the lost treasure.
+This is a simple text-based adventure game built with JavaScript.
 
 Table of Contents
 
-Getting Started
-How to Play
-Levels
+1. Introduction
+2. Installation
+3. Usage
+4. How to Play
+5. Levels/Chapters
+
+Introduction
+
+"Pirates of the Caribbean - Cursed Seas" is a basic interactive adventure game implemented in JavaScript. You dive into the heart of mysterious waters of the Caribbean, where tales of cursed pirate treasure travel through the ages. Embark on a daring odyssey as Captain Adrian Storm, navigating through the challenging levels filled with the mysteries of the lost treasure.
+
 Installation
 
-Prerequisites
+Github Pages: https://catavadani.github.io/Pirates-of-the-Caribbean/
 
-Before you start your adventure, make sure you have:
-A modern web browser (Chrome, Firefox, Safari, etc.)
+Usage
 
-How to Play '
+The game can be played directly in the web browser. No additional dependencies or installations are required.
 
-Navigate through the story by clicking the on-screen buttons.
+How to Play
+
+The game consists of several chapters, each contributing to an overall story. The player make choices at key points in the game, influencing the direction of the narrative and determining the outcome, navigate through the story by clicking the on-screen buttons.
 Solve puzzles and collect items to progress through the levels.
-Immerse yourself in the captivating story of Captain Adrian Storm.
+Enjoy the adventure and see how your choices shape the outcome!
 
-Levels
+Levels/Chapters
 
 1. Pirates of the Caribbean - Cursed Seas
 
 - Introduction to the quest for the cursed treasure.
-- Begin your journey into the treacherous waters.
+- Begin your journey into the mysterious waters.
 
 2. The Lost Treasure Map
 
@@ -36,27 +42,24 @@ Levels
 
 3. The Hidden Cave
 
-- Explore a hidden cave holding the key to the quest.
-- Uncover secrets and solve puzzles.
+- Explore a hidden cave holding the key to the quest. Input the mysterious message to unlock the hidden treasure.
 
-4. Mysterious Chamber
+4. Ghostly Ship
 
-- Encounter a room with forgotten pirate relics.
-- Unlock the power of the celestial compass.
+- Uncover a hidden message and navigate through the ghostly surroundings.
 
-5. Ghostly Ship
-
-- Confront a spectral ship and solve a mysterious puzzle.
-- Uncover a hidden message and navigate through the ghostly realm.
-
-6. The Secrets of the Map
+5. The Secrets of the Map
 
 - Search for key artifacts to unlock the path to the Ghostly Ship.
 - Confirm items collected for the final journey.
 
-7. Unveiling the Map's Mysteries
+6. Unveiling the Map's Mysteries
 
 - Decipher the map's enigmas and embark on a new quest.
 - Seek additional artifacts to illuminate your path.
+
+7. The Journey's End
+
+- The final chapter where the player's choices lead to different endings.
 
 Inspired by the "Pirates of the Caribbean" (film series) produced by Jerry Bruckheimer.

@@ -3,7 +3,7 @@ let currentChapterIndex = 0;
 const chapters = [
   {
     title: "Pirates of the Caribbean - Cursed Seas",
-    text: "In the treacherous waters of the Caribbean, the tales of cursed pirate treasure resonate through the ages. You, Captain Adrian Storm, have to discover the mysterious map of the lost treasure. Brace yourself for a daring odyssey, navigate through five challenging levels, confronting supernatural forces and crafty adversaries to claim the cursed treasure. ",
+    text: "In the treacherous waters of the Caribbean, the tales of cursed pirate treasure resonate through the ages. You, Captain Adrian Storm, have to discover the mysterious map of the lost treasure. Brace yourself for a daring odyssey, navigate through the challenging levels, solve the hidden puzzles to claim the cursed treasure. ",
     instruction: "Are you ready for adventure?",
     background: "images/shipwreck.jpeg",
     button1: {
