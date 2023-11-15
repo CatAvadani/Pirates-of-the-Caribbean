@@ -91,9 +91,7 @@ function displayChapter() {
     userInputField.className = "user-input";
     centerContainer.appendChild(userInputField);
     chapterInstruction.style.width = "50%";
-    // Assuming 'btn1' is the button that will check the user's answer
-    const btn1 = document.getElementById("btn-1");
-
+    hideBtn(btn2);
     btn1.onclick = () => {
       // Get the user's input and trim white spaces
       const userAnswer = userInputField.value.trim();

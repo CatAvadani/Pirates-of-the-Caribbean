@@ -68,3 +68,5 @@ Inspired by the "Pirates of the Caribbean" (film series) produced by Jerry Bruck
 Images Attribution
 
 The images used in this project are generated using artificial intelligence (AI) technologies - https://docs.midjourney.com/
+
+Video: - https://stock.adobe.com/se/ Free Trial License
