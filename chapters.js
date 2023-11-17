@@ -71,7 +71,7 @@ const chapters = [
     instruction1: "You unlocked new chapters, search for new clues.",
     instruction2: "You need to find the bottle first!",
     message:
-      "Journey into the depths, where shadows reveal their secrets. The lost city name:  *** ATLANTIS ***  This is the key the unlock the hidden treasure. Remember it, or this will be lost forever! You will need it later. ",
+      "Journey into the depths, where shadows reveal their secrets. The lost city name:  *** ATLANTIS ***  This is the key to unlock the hidden treasure. Remember it, or this will be lost forever! You will need it later. ",
     background: "images/ghost-ship3.png",
     button1: {
       title: "Return to the Map",
