@@ -56,160 +56,134 @@ function displayChapter() {
   // Handle specific chapter conditions.
   let title = chapter.title;
 
-  introduction();
-  chapter1();
-  chapter2();
-  chapter3();
-  chapter4();
-  chapter5();
-  chapter7();
-  chapter8();
-  finalChapter();
-
   /** Chapter - Introduction - Pirates of the Caribbean - Cursed Seas */
-  function introduction() {
-    if (title === chapters[0].title) {
-      hideBtn(btn2);
-    } else {
-      showBtn(btn2);
-      backgroundVideo.classList.add("hidden");
-      imageContainer.classList.remove("hidden");
-    }
+
+  if (title === chapters[0].title) {
+    hideBtn(btn2);
+  } else {
+    showBtn(btn2);
+    backgroundVideo.classList.add("hidden");
+    imageContainer.classList.remove("hidden");
   }
 
   /** Chapter 1 - The Lost Treasure Map */
-  function chapter1() {
-    if (title === chapters[1].title) {
-      hideBtn(btn1);
-      hideBtn(btn2);
-      showHiddenMap();
-    }
+
+  if (title === chapters[1].title) {
+    hideBtn(btn1);
+    hideBtn(btn2);
+    showHiddenMap();
   }
 
   /** Chapter 2 -The Hidden Cave */
-  function chapter2() {
-    if (title === chapters[2].title) {
-      inventoryItems.forEach((item) => {
-        item.classList.add("hidden");
-      });
+  if (title === chapters[2].title) {
+    inventoryItems.forEach((item) => {
+      item.classList.add("hidden");
+    });
 
-      const centerContainer = document.querySelector(".center-container");
-      const userInputField = document.createElement("input");
-      userInputField.setAttribute("type", "text");
-      userInputField.setAttribute(
-        "placeholder",
-        "Answer and go to the treasure..."
-      );
-      userInputField.className = "user-input";
-      centerContainer.appendChild(userInputField);
+    const centerContainer = document.querySelector(".center-container");
+    const userInputField = document.createElement("input");
+    userInputField.setAttribute("type", "text");
+    userInputField.setAttribute(
+      "placeholder",
+      "Answer and go to the treasure..."
+    );
+    userInputField.className = "user-input";
+    centerContainer.appendChild(userInputField);
 
-      chapterInstruction.style.width = "50%";
-      hideBtn(btn2);
-      let count = 0;
-      btn1.onclick = () => {
-        count++;
-        if (count > 1) {
-          showBtn(btn2);
-          btn2.textContent = "See The Message";
-          btn2.onclick = () => {
-            showMessage(chapters[4].message);
-          };
-        }
-        // Get the user's input and trim white spaces
-        const userAnswer = userInputField.value.trim();
+    chapterInstruction.style.width = "50%";
+    hideBtn(btn2);
+    let count = 0;
+    btn1.onclick = () => {
+      count++;
+      if (count > 1) {
+        showBtn(btn2);
+        btn2.textContent = "See The Message";
+        btn2.onclick = () => {
+          showMessage(chapters[4].message);
+        };
+      }
+      // Get the user's input and trim white spaces
+      const userAnswer = userInputField.value.trim();
 
-        // Check if the user's answer is correct
-        if (userAnswer.toLowerCase() === "atlantis") {
-          chapterInstruction.style.color = "white";
-          userInputField.classList.add("hidden");
-          chapterInstruction.style.width = "70%";
-          displayNextChapter(chapter.button1.nextChapter);
-          userInputField.value = "";
-        } else {
-          chapterInstruction.textContent = chapter.instruction1;
-          chapterInstruction.style.color = "#FFC267";
-          userInputField.value = "";
-        }
-      };
-    }
+      // Check if the user's answer is correct
+      if (userAnswer.toLowerCase() === "atlantis") {
+        chapterInstruction.style.color = "white";
+        userInputField.classList.add("hidden");
+        chapterInstruction.style.width = "70%";
+        displayNextChapter(chapter.button1.nextChapter);
+        userInputField.value = "";
+      } else {
+        chapterInstruction.textContent = chapter.instruction1;
+        chapterInstruction.style.color = "#FFC267";
+        userInputField.value = "";
+      }
+    };
   }
 
   /** Chapter 3 - Mysterious Chamber */
-  function chapter3() {
-    if (chapter.title === chapters[3].title) {
-      showBtn(btn1);
-    }
+  if (chapter.title === chapters[3].title) {
+    showBtn(btn1);
   }
   /** Chapter 4 - Ghostly Ship */
-  function chapter4() {
-    if (chapter.title === chapters[4].title) {
-      // Check if the "messageBottle" is not already in the inventory.
-      createBottle(chapter.message);
-      hideBtn(btn1);
-      btn2.onclick = () => {
-        const isMessageBottlePresent = inventory.includes("messageBottle");
-        if (isMessageBottlePresent) {
-          showBtn(btn1);
-          hideBtn(btn2);
-          chapterInstruction.textContent = chapter.instruction1;
-          chapterInstruction.style.color = "white";
-        } else {
-          chapterInstruction.textContent = chapter.instruction2;
-          chapterInstruction.style.color = "#FFC267";
-        }
-      };
-    }
+  if (chapter.title === chapters[4].title) {
+    // Check if the "messageBottle" is not already in the inventory.
+    createBottle(chapter.message);
+    hideBtn(btn1);
+    btn2.onclick = () => {
+      const isMessageBottlePresent = inventory.includes("messageBottle");
+      if (isMessageBottlePresent) {
+        showBtn(btn1);
+        hideBtn(btn2);
+        chapterInstruction.textContent = chapter.instruction1;
+        chapterInstruction.style.color = "white";
+      } else {
+        chapterInstruction.textContent = chapter.instruction2;
+        chapterInstruction.style.color = "#FFC267";
+      }
+    };
   }
 
   /** Chapter 5 - The Secrets of the Map */
-  function chapter5() {
-    if (chapter.title === chapters[5].title) {
-      /** Display the inventory items in the appropriate chapter */
-      showSeaShell();
-      showCompass();
-      showKey();
+  if (chapter.title === chapters[5].title) {
+    /** Display the inventory items in the appropriate chapter */
+    showSeaShell();
+    showCompass();
+    showKey();
 
-      // Check if specific items are collected to show a button.
-      btn2.onclick = () => {
-        const isSeaShellPresent = inventory.includes("seaShell");
-        const isKeyPresent = inventory.includes("key");
-        const isCompassPresent = inventory.includes("compass");
-        if (isSeaShellPresent && isKeyPresent && isCompassPresent) {
-          showBtn(btn1);
-          hideBtn(btn2);
-          chapterInstruction.textContent = chapter.instruction1;
-          chapterInstruction.style.color = "white";
-        } else {
-          chapterInstruction.textContent = chapter.instruction2;
-          chapterInstruction.style.color = "#FFC267";
-        }
-      };
-    }
+    // Check if specific items are collected to show a button.
+    btn2.onclick = () => {
+      const isSeaShellPresent = inventory.includes("seaShell");
+      const isKeyPresent = inventory.includes("key");
+      const isCompassPresent = inventory.includes("compass");
+      if (isSeaShellPresent && isKeyPresent && isCompassPresent) {
+        showBtn(btn1);
+        hideBtn(btn2);
+        chapterInstruction.textContent = chapter.instruction1;
+        chapterInstruction.style.color = "white";
+      } else {
+        chapterInstruction.textContent = chapter.instruction2;
+        chapterInstruction.style.color = "#FFC267";
+      }
+    };
   }
 
   /** Chapter 7 - Back Home to Port Royal */
-  function chapter7() {
-    if (chapter.title === chapters[7].title) {
-      inventoryItems.forEach((item) => {
-        item.classList.add("hidden");
-      });
-    }
+  if (chapter.title === chapters[7].title) {
+    inventoryItems.forEach((item) => {
+      item.classList.add("hidden");
+    });
   }
 
   /** Chapter 8 - The Hidden Treasure */
-  function chapter8() {
-    if (chapter.title === chapters[8].title) {
-      hideBtn(btn2);
-    }
+  if (chapter.title === chapters[8].title) {
+    hideBtn(btn2);
   }
 
   /** Chapter 9 - The Journey's End */
-  function finalChapter() {
-    if (chapter.title === chapters[9].title) {
-      // btn1.style.display = "none";
-      hideBtn(btn1);
-      hideBtn(btn2);
-    }
+  if (chapter.title === chapters[9].title) {
+    // btn1.style.display = "none";
+    hideBtn(btn1);
+    hideBtn(btn2);
   }
 
   /**
